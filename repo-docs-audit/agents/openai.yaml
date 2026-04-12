@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Docs Audit"
+  short_description: "Audit repo docs against code"
+  default_prompt: "Use $repo-docs-audit to verify repo docs match the current work in progress."

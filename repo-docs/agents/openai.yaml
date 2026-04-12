@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Docs"
+  short_description: "Repo docs workflow and upkeep"
+  default_prompt: "Use $repo-docs to bootstrap and maintain repo documentation workflows."
