@@ -4,10 +4,14 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 SKILLS_DIRS=(
   "$HOME/.agents/skills"
-  "$HOME/.copilot/skills"
-  "$HOME/.gemini/skills"
   "$HOME/.claude/skills"
   "$HOME/.codex/skills"
+  "$HOME/.copilot/skills"
+  "$HOME/.cursor/skills/"
+  "$HOME/.gemini/skills"
+  "$HOME/.github/skills"
+  "$HOME/.opencode/skills"
+  "$HOME/.warp/skills"
 )
 
 link_skill() {

@@ -1,11 +1,6 @@
 # repo-docs-skill
 
-Shared Codex skills for doc-first repo workflows.
-
-This repo contains two skills:
-
-- `repo-docs`: bootstrap and maintain a `/docs` workflow centered on `AGENTS.md`, `WORK_IN_PROGRESS.md`, plan docs, and spec docs
-- `repo-docs-audit`: read-only audit that checks whether current docs and implementation still match
+Agent skills for keeping repo documentation and source code in sync.
 
 ## Why use this
 
@@ -17,7 +12,9 @@ The goals are simple but powerful:
 
 ## Install
 
-This repo ships an installer that symlinks the skills into common agent skill directories.
+`npx skills add mjamore/repo-docs-skill`
+
+Or clone the repo and symlink the files to all common agent skill directories.
 
 ```bash
   git clone git@github.com:mjamore/repo-docs-skill.git
@@ -29,17 +26,23 @@ By default this symlinks the following directories:
 
 ```text
 ~/.agents/skills/
-~/.copilot/skills/
-~/.gemini/skills/
 ~/.claude/skills/
 ~/.codex/skills/
+~/.copilot/skills/
+~/.cursor/skills/
+~/.gemini/skills/
+~/.github/skills/
+~/.opencode/skills/
+~/.warp/skills/
 ```
 
 Because the skills are installed as symlinks with `install.sh`, just run it once and any future edits you make to the repo skill files will be instantly available to all coding agents.
 
 ## Included skills
 
-### `repo-docs`
+This repo contains two skills:
+
+### `/repo-docs`
 
 Use this when a repo should follow a doc-first workflow. Ideally add at the start of your projects, but you can add it any time.
 
@@ -49,7 +52,7 @@ It teaches the agent to:
 2. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
 3. Prompt the user when docs and source code are out of sync.
 
-### `repo-docs-audit`
+### `/repo-docs-audit`
 
 Use this after code or doc changes when you need a read-only verification pass.
 

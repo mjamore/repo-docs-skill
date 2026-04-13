@@ -1,6 +1,6 @@
 ---
 name: repo-docs-audit
-description: Audit documentation vs. source code to identify and fix discrepancies. Read-only verification of repo documentation against the current work in progress. Use when code or repo docs changed and you need to check whether `/docs/WORK_IN_PROGRESS.md`, linked plan docs, linked spec docs, and implementation still align; when validating progressive disclosure links; when deciding whether a plan is ready to archive; or when the user explicitly asks for a docs/code audit.
+description: Audit documentation vs. source code to fix conflicts. Use when code or repo docs changed and you need to check whether `/docs/WORK_IN_PROGRESS.md`, linked plan docs, linked spec docs, and implementation still align; when validating progressive disclosure links; when deciding whether a plan is ready to archive; or when the user explicitly asks for a docs/code audit.
 ---
 
 # Repo Docs Audit
