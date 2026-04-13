@@ -117,6 +117,7 @@ Plan content rules:
 - Explain what and why.
 - Keep direct code references minimal or none.
 - Link to relevant spec docs from `Current State` using relative markdown links.
+- Plan filename must end exactly with `-plan.md`.
 - Keep `Created` and `Last Updated` as separate markdown bullets at the top of the plan.
 - Add `Archived` bullet only when the plan is archived.
 - Use checklist items in `Changes To Be Made` to track progress towards completion.
@@ -141,7 +142,7 @@ Specs are source of truth for intended application behavior.
 Rules:
 
 - path: `/docs/specs/`
-- filename: `*-spec.md`
+- filename: `[relevant-area]-[brief-description]-spec.md`
 - first line is title
 - next two lines are bullet points: `- Created: ...` and `- Last Updated: ...` in Los Angeles time
 - required early sections:
@@ -155,6 +156,7 @@ Spec structure rules:
 - Keep most important information near top.
 - Use headings, bold text, and links to add meaning to text (importance/hierarchy/relationships).
 - Link to relevant code files. Do not paste code into specs.
+- Spec filename must end exactly with `-spec.md`.
 - Keep enough detail to derive intended behavior, not 1:1 source mapping.
 - Do not leave `Created` and `Last Updated` as plain lines. They must each be their own markdown bullet.
 

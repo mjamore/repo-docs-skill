@@ -41,6 +41,8 @@ Check for:
 - finished work not fully covered by current `/docs/specs/` files
 - markdown doc links that use `/docs/...` or filesystem absolute paths instead of relative paths
 - completed plan overwritten or repurposed for new scope instead of being archived or kept as same-scope history
+- active or archived plan filename does not end with `-plan.md`
+- active spec filename does not end with `-spec.md`
 - spec docs stale relative to implementation
 - spec ownership or file structure no longer fits the finished work, but required spec reorganization was not done
 - code behavior changed without matching doc updates
@@ -74,7 +76,7 @@ If not clean:
 
 Severity rules:
 
-- `blocking`: spec/code conflict, missing required doc update, finished work not covered in `/docs/specs/`, broken progressive disclosure link, absolute doc-to-doc markdown link, completed plan reused for new scope, archive not allowed because plan checklist incomplete
+- `blocking`: spec/code conflict, missing required doc update, finished work not covered in `/docs/specs/`, broken progressive disclosure link, absolute doc-to-doc markdown link, completed plan reused for new scope, invalid plan/spec filename suffix, archive not allowed because plan checklist incomplete
 - `non-blocking`: stale wording, weak link structure, minor missing context
 
 ## Archive Gate
