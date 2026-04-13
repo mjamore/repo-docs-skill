@@ -14,11 +14,13 @@ Read in this order:
 1. `AGENTS.md`
 2. This skill
 3. `/docs/WORK_IN_PROGRESS.md`
-4. Linked plan doc if one exists for active item
-5. Otherwise linked relevant spec docs
+4. Linked plan doc if one exists for active item relevant to current task
+5. Otherwise scan `/docs/specs/` for relevant context to current task
 6. Code only after docs path is clear
 
 Read only next relevant doc.
+
+If `/docs/WORK_IN_PROGRESS.md` has no active item relevant to the current task, scan `/docs/specs/` for the closest owning spec docs before reading code.
 
 ## Bootstrap
 
@@ -66,6 +68,7 @@ Rules:
 - No direct code references.
 - Keep progressive disclosure intact by linking onward to plan/spec docs.
 - Use relative markdown links to plan/spec docs from the current file. Never use `/docs/...` or filesystem absolute paths for doc-to-doc links.
+- If no active item in `/docs/WORK_IN_PROGRESS.md` matches the current task, fall back to scanning `/docs/specs/` for relevant context.
 
 ## Link Rules
 
@@ -99,7 +102,7 @@ Plan rules:
 - archive path: `/docs/plans/archived/`
 - filename: `[relevant-part-of-code]-[brief-description]-plan.md`
 - first line is title
-- next lines are `Created` and `Last Updated` in Los Angeles time
+- next lines are markdown bullets for `Created` and `Last Updated` in Los Angeles time
 - sections in order:
   - `## TLDR`
   - `## Current State`
@@ -114,6 +117,8 @@ Plan content rules:
 - Explain what and why.
 - Keep direct code references minimal or none.
 - Link to relevant spec docs from `Current State` using relative markdown links.
+- Keep `Created` and `Last Updated` as separate markdown bullets at the top of the plan.
+- Add `Archived` bullet only when the plan is archived.
 - Use checklist items in `Changes To Be Made` to track progress towards completion.
 - Treat each plan file as durable record for one scope of work.
 - If newly discovered work is still same scope, extend the existing active plan instead of replacing it.
@@ -124,6 +129,7 @@ Archive rule:
 - When planned code/docs work is complete and `/docs/specs/` reflects final behavior, ask user whether to archive plan.
 - Never ask user to archive unless all plan checklist items are completed.
 - Never ask user to archive unless finished work is fully covered by the current `/docs/specs/` state. Update specs first, whether that means creating, editing, moving, merging, splitting, or deleting docs.
+- When archiving a plan, add an `- Archived: ...` timestamp in Los Angeles time directly under `- Last Updated: ...` at the top of the document before moving it to `/docs/plans/archived/`.
 - Once plan is complete, do not overwrite or repurpose that file with new scope.
 - If user does not archive because more same-scope work is needed, add new checklist items to that plan and keep it active.
 - If user does not archive because follow-on work is new scope, keep completed plan intact and create a new plan.

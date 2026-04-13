@@ -58,9 +58,10 @@ It teaches the agent to:
 
 1. Autonomously maintain `/docs/plans` and `docs/specs` when the user requests changes, keeping the docs and source code always in sync.
 2. Use relative markdown links between repo docs to preserve progressive disclosure when files move or are reused.
-3. Treat plans as durable records: extend same-scope plans, but do not overwrite completed plans with new scope. Only ask before archiving after finished work is fully covered in `/docs/specs`.
-4. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
-5. Prompt the user when docs and source code are out of sync.
+3. Use `/docs/WORK_IN_PROGRESS.md` as the first routing doc, but if it has no active item relevant to the task, scan `/docs/specs/` for the closest relevant context before reading code.
+4. Treat plans as durable records: extend same-scope plans, but do not overwrite completed plans with new scope. Only ask before archiving after finished work is fully covered in `/docs/specs`, and add an `Archived` timestamp when a plan is moved to `/docs/plans/archived/`.
+5. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
+6. Prompt the user when docs and source code are out of sync.
 
 ### `/repo-docs-audit`
 
