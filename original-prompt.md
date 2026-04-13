@@ -13,12 +13,14 @@ AGENTS.md -> read this skill -> WORK_IN_PROGRESS.md -> a plan file -> relevant s
 - No changeset is complete until the documentation accurately reflects the new state of the code base.
 - Progressive disclosure is a foundation principle of how the documentation MUST be structured. When A human or an AI agent has a task and wants to understand how the code base works. The structured nature of this documentation should make it fast and efficient for them to get to the specific information they need without a bunch of unnecessary context that's irrelevant to their task.
 - These markdown files should heavily leverage the built-in features of markdown. For example, Markdown supports headings, which imply importance and hierarchy. Markdown supports bold text, which implies significance. Linking is a core component of markdown. Our entire progressive disclosure strategy relies on properly scoped files that properly link to each other. We should highly value these features and leverage them to structure our documentation accordingly to maximize its value to both humans and AI agents.
+- When these docs link to other markdown docs in the repo, use relative markdown paths from the current file. Do not use filesystem absolute paths or repo-root paths like `/docs/...`.
 - As these are living documents, as the project changes, not only should the documents themselves change, but the folder structure might also warrant a change. You are free to restructure at any time to maximize the progressive disclosure and overall clarity of the documentation. If you make a change to the folder structure or file names, make sure to update all links accordingly.
 - plans
   - docs/plans
     - As we evolve the app over time and add new features, we will often need to create a plan before implementation. This is where we identify/document the current applicable application state, document the new desired state/requirements, and document a step by step plan that an agent can iterate through to accomplish the goal.
     - Should include minimal/no direct code references, as linking to the relevant spec docs will lead to the relevant code (progressive disclosure).
     - Focused on the "what" and the "why". In this document, explaining why we are making a change is just as important as the change itself. If you don't know why, ask the user.
+    - A completed plan is durable history for that scope of work. Do not overwrite it with new scope. If more work is discovered, either add it to the existing plan when it is truly same scope, or create a new plan.
   - docs/plans/archived
     - As plans are completed, they are moved to the archived directory to keep the main plans directory narrow and focused on current and upcoming work.
     - No need to traverse these documents unless we are looking to understand when/where/why something was done in the past.

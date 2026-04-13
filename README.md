@@ -1,6 +1,6 @@
 # repo-docs-skill
 
-Agent skills for keeping repo documentation and source code in sync.
+Agent skills for keeping repo documentation and source code in sync and deriving source code from documentation.
 
 ## Why use this
 
@@ -12,14 +12,14 @@ The goals are simple but powerful:
 
 ## Install
 
-`npx skills add mjamore/repo-docs-skill`
-
-Or clone the repo and symlink the files to all common agent skill directories.
-
 ```bash
-  git clone git@github.com:mjamore/repo-docs-skill.git
-  cd repo-docs-skill
-  ./install.sh
+npx skills add mjamore/repo-docs-skill
+
+OR
+
+git clone git@github.com:mjamore/repo-docs-skill.git
+cd repo-docs-skill
+./install.sh
 ```
 
 By default this symlinks the following directories:
@@ -49,8 +49,10 @@ Use this when a repo should follow a doc-first workflow. Ideally add at the star
 It teaches the agent to:
 
 1. Autonomously maintain `/docs/plans` and `docs/specs` when the user requests changes, keeping the docs and source code always in sync.
-2. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
-3. Prompt the user when docs and source code are out of sync.
+2. Use relative markdown links between repo docs to preserve progressive disclosure when files move or are reused.
+3. Treat plans as durable records: extend same-scope plans, but do not overwrite completed plans with new scope. Ask before archiving.
+4. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
+5. Prompt the user when docs and source code are out of sync.
 
 ### `/repo-docs-audit`
 

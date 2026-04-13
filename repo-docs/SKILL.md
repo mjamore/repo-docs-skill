@@ -65,6 +65,16 @@ Rules:
 - Timestamps belong to each item, not file header.
 - No direct code references.
 - Keep progressive disclosure intact by linking onward to plan/spec docs.
+- Use relative markdown links to plan/spec docs from the current file. Never use `/docs/...` or filesystem absolute paths for doc-to-doc links.
+
+## Link Rules
+
+For links between markdown docs in repo docs:
+
+- use relative paths from current file
+- never use repo-root absolute paths like `/docs/specs/foo-spec.md`
+- never use filesystem absolute paths
+- update affected relative links in same change when files move or rename
 
 ## Plans
 
@@ -103,13 +113,19 @@ Plan content rules:
 
 - Explain what and why.
 - Keep direct code references minimal or none.
-- Link to relevant spec docs from `Current State`.
+- Link to relevant spec docs from `Current State` using relative markdown links.
 - Use checklist items in `Changes To Be Made` to track progress towards completion.
+- Treat each plan file as durable record for one scope of work.
+- If newly discovered work is still same scope, extend the existing active plan instead of replacing it.
+- If newly discovered work is different scope or materially expands scope, create a new plan instead of overwriting the existing one.
 
 Archive rule:
 
 - When planned code/docs work is complete, ask user whether to archive plan.
 - Never ask user to archive unless all plan checklist items are completed.
+- Once plan is complete, do not overwrite or repurpose that file with new scope.
+- If user does not archive because more same-scope work is needed, add new checklist items to that plan and keep it active.
+- If user does not archive because follow-on work is new scope, keep completed plan intact and create a new plan.
 
 ## Specs
 
@@ -167,7 +183,9 @@ When task changes code or repo docs:
 1. update relevant docs to final state
 2. run `/repo-docs-audit`
 3. if audit passes and relevant plan exists with all checkboxes complete, ask user whether to archive the plan
-4. if audit passes and plan is not complete, inform the user that the docs and code are in sync - "Validated that /docs and source code are in sync."
-5. if audit fails, notify user of discrepancies so they can provide the correct direction going forward
+4. if user wants to keep working and scope is same, reopen that plan by adding explicit new checklist items
+5. if user wants to keep working and scope is new, create a new plan and keep completed one intact
+6. if audit passes and no plan is archive-ready, inform the user that the docs and code are in sync - "Validated that /docs and source code are in sync."
+7. if audit fails, notify user of discrepancies so they can provide the correct direction going forward
 
 Skip audit for read-only research or question-only work.
