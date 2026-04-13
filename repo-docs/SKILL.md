@@ -1,6 +1,6 @@
 ---
 name: repo-docs
-description: Bootstrap and maintain repo documentation workflows centered on `/docs`. Use when a repo should follow the doc-first system with `AGENTS.md`, `/docs/WORK_IN_PROGRESS.md`, plan docs, and spec docs; when docs structure is missing; when code changes require matching doc updates; when spec ownership or progressive disclosure links need upkeep; or when a task may need a plan.
+description: Docs -> source code. Keep documentation and source code in sync at all times. Centered on `/docs` directory. Use when a repo should follow the doc-first system with `AGENTS.md`, `/docs/WORK_IN_PROGRESS.md`, plan docs, and spec docs; when docs structure is missing; when code changes require matching doc updates; when spec ownership or progressive disclosure links need upkeep; or when a task may need a plan.
 ---
 
 # Repo Docs
