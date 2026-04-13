@@ -38,9 +38,11 @@ Check for:
 - active work item missing link to plan or relevant spec docs
 - plan exists but does not reflect actual work
 - plan checklist incomplete while work appears closed out
+- finished work not fully covered by current `/docs/specs/` files
 - markdown doc links that use `/docs/...` or filesystem absolute paths instead of relative paths
 - completed plan overwritten or repurposed for new scope instead of being archived or kept as same-scope history
 - spec docs stale relative to implementation
+- spec ownership or file structure no longer fits the finished work, but required spec reorganization was not done
 - code behavior changed without matching doc updates
 - spec/code conflict
 - stale links caused by moved or renamed docs
@@ -72,17 +74,20 @@ If not clean:
 
 Severity rules:
 
-- `blocking`: spec/code conflict, missing required doc update, broken progressive disclosure link, absolute doc-to-doc markdown link, completed plan reused for new scope, archive not allowed because plan checklist incomplete
+- `blocking`: spec/code conflict, missing required doc update, finished work not covered in `/docs/specs/`, broken progressive disclosure link, absolute doc-to-doc markdown link, completed plan reused for new scope, archive not allowed because plan checklist incomplete
 - `non-blocking`: stale wording, weak link structure, minor missing context
 
 ## Archive Gate
 
-A plan is only archive-ready when both are true:
+A plan is only archive-ready when all are true:
 
 - audit is clean
 - all plan checkboxes are completed
+- finished work is fully covered by the current `/docs/specs/` state
 
-If both are true, tell calling agent it may ask user whether to archive plan.
+If spec coverage requires creating, editing, moving, merging, splitting, or deleting spec docs, plan is not archive-ready until that work is done.
+
+If all are true, tell calling agent it may ask user whether to archive plan.
 
 If either is false, do not suggest archive.
 

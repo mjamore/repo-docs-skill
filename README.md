@@ -20,6 +20,8 @@ The solutions are simple, but powerful:
 
 ## Install
 
+Available on [skills.sh](https://skills.sh/mjamore/repo-docs-skill/repo-docs) or install directly with:
+
 ```bash
 npx skills add mjamore/repo-docs-skill
 
@@ -32,17 +34,15 @@ cd repo-docs-skill
 
 By default this symlinks the following directories:
 
-```text
-~/.agents/skills/
-~/.claude/skills/
-~/.codex/skills/
-~/.copilot/skills/
-~/.cursor/skills/
-~/.gemini/skills/
-~/.github/skills/
-~/.opencode/skills/
-~/.warp/skills/
-```
+- ~/.agents/skills/
+- ~/.claude/skills/
+- ~/.codex/skills/
+- ~/.copilot/skills/
+- ~/.cursor/skills/
+- ~/.gemini/skills/
+- ~/.github/skills/
+- ~/.opencode/skills/
+- ~/.warp/skills/
 
 Because the skills are installed as symlinks with `install.sh`, just run it once and any future edits you make to the repo skill files will be instantly available to all coding agents.
 
@@ -58,7 +58,7 @@ It teaches the agent to:
 
 1. Autonomously maintain `/docs/plans` and `docs/specs` when the user requests changes, keeping the docs and source code always in sync.
 2. Use relative markdown links between repo docs to preserve progressive disclosure when files move or are reused.
-3. Treat plans as durable records: extend same-scope plans, but do not overwrite completed plans with new scope. Ask before archiving.
+3. Treat plans as durable records: extend same-scope plans, but do not overwrite completed plans with new scope. Only ask before archiving after finished work is fully covered in `/docs/specs`.
 4. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
 5. Prompt the user when docs and source code are out of sync.
 
@@ -71,6 +71,7 @@ It checks:
 - current work-in-progress links
 - plan/spec alignment
 - whether implementation changed without matching doc updates
+- whether finished work is fully covered in `/docs/specs`
 - whether a plan is actually ready to archive
 
 ## Repo layout
@@ -89,6 +90,5 @@ install.sh
 
 ## Usage
 
-Add "Always use the `/repo-docs` skill" to your `AGENTS.md` to have your agent automatically keep your docs and source code in sync and notify you of any discrepancies.
-
-You can invoke `/repo-docs-audit` any time to perform an audit and surface any discrepancies between the docs and the source code so they can be resolved.
+- Add "Always use the `/repo-docs` skill" to your `AGENTS.md` to have your agent automatically keep your docs and source code in sync and notify you of any discrepancies.
+- You can invoke `/repo-docs-audit` any time to perform an audit and surface any discrepancies between the docs and the source code so they can be resolved.

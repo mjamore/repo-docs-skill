@@ -121,8 +121,9 @@ Plan content rules:
 
 Archive rule:
 
-- When planned code/docs work is complete, ask user whether to archive plan.
+- When planned code/docs work is complete and `/docs/specs/` reflects final behavior, ask user whether to archive plan.
 - Never ask user to archive unless all plan checklist items are completed.
+- Never ask user to archive unless finished work is fully covered by the current `/docs/specs/` state. Update specs first, whether that means creating, editing, moving, merging, splitting, or deleting docs.
 - Once plan is complete, do not overwrite or repurpose that file with new scope.
 - If user does not archive because more same-scope work is needed, add new checklist items to that plan and keep it active.
 - If user does not archive because follow-on work is new scope, keep completed plan intact and create a new plan.
@@ -156,6 +157,7 @@ Spec ownership rules:
 - Create new spec doc when no current spec cleanly owns feature or area.
 - Split, merge, move, or delete spec docs only when current structure hurts progressive disclosure enough to justify it.
 - When restructuring specs, update all affected links in same change.
+- Before any plan is archive-ready, ensure finished work is covered by the resulting `/docs/specs/` structure, even if that requires spec reorganization.
 
 ## Conflict Rule
 
@@ -180,7 +182,7 @@ Rules:
 
 When task changes code or repo docs:
 
-1. update relevant docs to final state
+1. update repo docs to final state, including any `/docs/specs/` create, edit, move, merge, split, or delete work needed so finished behavior is documented
 2. run `/repo-docs-audit`
 3. if audit passes and relevant plan exists with all checkboxes complete, ask user whether to archive the plan
 4. if user wants to keep working and scope is same, reopen that plan by adding explicit new checklist items
