@@ -1,14 +1,22 @@
 # repo-docs-skill
 
-Agent skills for keeping repo documentation and source code in sync and deriving source code from documentation.
+Agent skills for keeping repo documentation and source code in sync and deriving source code from documentation, not the other way around.
 
-## Why use this
+## Why should I use this?
 
-The goals are simple but powerful:
+If you've ever experienced the pain of any of the following when using AI agents for coding, you will find this skill helpful:
+
+- Documentation and source code drift, causing confusion for both humans and agents about the intended behavior of the application.
+- Constantly reminding the agent to update the documentation after every code change.
+- Documentation is unorganized, bloated, and hard to navigate.
+- Asking the agent to audit the docs and code to find discrepancies.
+- Feeling unsure if your documentation accurately reflects the current state of the codebase.
+
+The solutions are simple, but powerful:
 
 - Embrace progressive disclosure to make repo documentation fast to navigate and useful to both humans and agents
 - Automatically keep the documentation and source code in sync
-- Go from `source code -> docs` to `docs -> source code`. When source code is derived from the docs, English becomes the programming language.
+- Go from `source code -> docs` to `docs -> source code`. This paradigm is clearly established by this skill. The agent understand how to write detailed enough documentation to effectively derive source code from it. When source code is derived from the docs, English becomes the programming language.
 
 ## Install
 
