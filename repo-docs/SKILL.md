@@ -54,7 +54,7 @@ Required structure:
 
 - file title
 - `## Active Items`
-- each item has:
+- each item has following bullet points:
   - short task line
   - `Created` and `Last Updated` timestamps in Los Angeles time
   - links to plan doc and/or relevant spec docs
@@ -137,7 +137,7 @@ Rules:
 - path: `/docs/specs/`
 - filename: `*-spec.md`
 - first line is title
-- next lines are `Created` and `Last Updated` in Los Angeles time
+- next two lines are bullet points: `- Created: ...` and `- Last Updated: ...` in Los Angeles time
 - required early sections:
   - `## TLDR`
   - `## Contents`
@@ -150,6 +150,7 @@ Spec structure rules:
 - Use headings, bold text, and links to add meaning to text (importance/hierarchy/relationships).
 - Link to relevant code files. Do not paste code into specs.
 - Keep enough detail to derive intended behavior, not 1:1 source mapping.
+- Do not leave `Created` and `Last Updated` as plain lines. They must each be their own markdown bullet.
 
 Spec ownership rules:
 
@@ -184,10 +185,11 @@ When task changes code or repo docs:
 
 1. update repo docs to final state, including any `/docs/specs/` create, edit, move, merge, split, or delete work needed so finished behavior is documented
 2. run `/repo-docs-audit`
-3. if audit passes and relevant plan exists with all checkboxes complete, ask user whether to archive the plan
-4. if user wants to keep working and scope is same, reopen that plan by adding explicit new checklist items
-5. if user wants to keep working and scope is new, create a new plan and keep completed one intact
-6. if audit passes and no plan is archive-ready, inform the user that the docs and code are in sync - "Validated that /docs and source code are in sync."
-7. if audit fails, notify user of discrepancies so they can provide the correct direction going forward
+3. if audit passes and relevant plan exists with all checkboxes complete, output the relative repo paths of every spec doc updated for this task. If none were updated, explicitly say so
+4. after outputting those spec doc paths, ask user whether to archive the plan
+5. if user wants to keep working and scope is same, reopen that plan by adding explicit new checklist items
+6. if user wants to keep working and scope is new, create a new plan and keep completed one intact
+7. if audit passes and no plan is archive-ready, inform the user that the docs and code are in sync - "Validated that /docs and source code are in sync."
+8. if audit fails, notify user of discrepancies so they can provide the correct direction going forward
 
 Skip audit for read-only research or question-only work.

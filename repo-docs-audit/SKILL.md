@@ -87,7 +87,7 @@ A plan is only archive-ready when all are true:
 
 If spec coverage requires creating, editing, moving, merging, splitting, or deleting spec docs, plan is not archive-ready until that work is done.
 
-If all are true, tell calling agent it may ask user whether to archive plan.
+If all are true, tell calling agent it may output the relative repo paths of all spec docs updated for the task, then ask user whether to archive plan.
 
 If either is false, do not suggest archive.
 
