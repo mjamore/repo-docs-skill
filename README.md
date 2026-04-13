@@ -13,7 +13,7 @@ The goals are simple but powerful:
 
 - Embrace progressive disclosure to make repo documentation fast to navigate and useful to both humans and agents
 - Automatically keep the documentation and source code in sync
-- Go from `source code -> docs` to `docs -> source code`
+- Go from `source code -> docs` to `docs -> source code`. When source code is derived from the docs, English becomes the programming language.
 
 ## Install
 
@@ -25,7 +25,7 @@ This repo ships an installer that symlinks the skills into common agent skill di
   ./install.sh
 ```
 
-By default this links into:
+By default this symlinks the following directories:
 
 ```text
 ~/.agents/skills/
@@ -35,28 +35,19 @@ By default this links into:
 ~/.codex/skills/
 ```
 
-You can override the Codex target with `CODEX_HOME`.
-
-```bash
-CODEX_HOME=/path/to/codex-home ./install.sh
-```
-
-Because the skills are installed as symlinks, edits in this repo are reflected immediately in each linked tool. There is no separate copy to refresh.
+Because the skills are installed as symlinks with `install.sh`, just run it once and any future edits you make to the repo skill files will be instantly available to all coding agents.
 
 ## Included skills
 
 ### `repo-docs`
 
-Use this when a repo should follow a doc-first workflow.
+Use this when a repo should follow a doc-first workflow. Ideally add at the start of your projects, but you can add it any time.
 
 It teaches the agent to:
 
-1. read `AGENTS.md`
-2. read active docs before code
-3. maintain `/docs/WORK_IN_PROGRESS.md`
-4. create plans only when they add value
-5. treat spec docs as the source of truth
-6. stop and ask the user if specs and code conflict
+1. Autonomously maintain `/docs/plans` and `docs/specs` when the user requests changes, keeping the docs and source code always in sync.
+2. View the docs as the source of truth. Source code is derived from the docs, not the other way around.
+3. Prompt the user when docs and source code are out of sync.
 
 ### `repo-docs-audit`
 
@@ -85,14 +76,6 @@ install.sh
 
 ## Usage
 
-Reference the skill from a repo's `AGENTS.md`.
+Add "Always use the `/repo-docs` skill" to your `AGENTS.md` to have your agent automatically keep your docs and source code in sync and notify you of any discrepancies.
 
-```md
-Always use the `/repo-docs` skill.
-```
-
-Then call `repo-docs-audit` as part of closeout whenever code or repo docs changed.
-
-## Contributing
-
-Keep changes small and concrete. Favor clarity over completeness. If you change the workflow rules, update the skill docs directly instead of adding explanation drift elsewhere.
+You can invoke `/repo-docs-audit` any time to perform an audit and surface any discrepancies between the docs and the source code so they can be resolved.
